@@ -6,9 +6,15 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int count = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,20 +23,29 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blueAccent,
           title: Text('Fluntter'),
         ),
-        body: ListView.builder(
-          itemBuilder: (context, index) {
-            return Container(
-              color: randomColor(),
-              width: 500,
-              height: 500,
-            );
-          },
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Aperta o bontãozinhummmnnhhh:',
+              ),
+              Text(
+                '$count',
+                style: const TextStyle(fontSize: 100),
+              ),
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.greenAccent,
           child: const Icon(Icons.add),
           onPressed: () {
-            print('Hello World');
+            setState(
+              () {
+                count++;
+              },
+            );
           },
         ),
         bottomNavigationBar: BottomNavigationBar(
