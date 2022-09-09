@@ -32,7 +32,18 @@ class _ScreenOneState extends State<ScreenOne> {
               onPressed: () {
                 Navigator.pushNamed(context, '/second');
               },
-            )
+            ),
+            IconButton(
+              icon: Hero(
+                tag: "img",
+                child: Image.network(
+                    "https://cdn.discordapp.com/attachments/995357397382078505/1016462474356203530/unknown.png"),
+              ),
+              iconSize: 300,
+              onPressed: () {
+                Navigator.pushNamed(context, '/second');
+              },
+            ),
           ],
         ),
       ),
